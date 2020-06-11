@@ -299,11 +299,6 @@ type Metafield {
 
 "The details of an `Address` to be created or updated"
 input AddressInput {
-  "The street address / first line"
-  address1: String!
-
-  "Optional second line"
-  address2: String
 
   """
   Optionally, a name for this address (e.g. 'Home') to easily identify it in the future
@@ -359,15 +354,10 @@ input AddressInput {
 }
 
 "Represents a physical or mailing address somewhere on Earth"
-type Address {
+type Address implements Node{
   "The address ID"
-  _id: ID
+  _id: ID!
 
-  "The street address / first line"
-  address1: String!
-
-  "Optional second line"
-  address2: String
 
   "City"
   city: String!
